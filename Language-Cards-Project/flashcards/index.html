@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<head>
+    <style>
+        body {
+            background: #5f9fff;
+            padding: 40px;
+            font-family: Courier;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }   
+
+        .card {
+            background: papayawhip;
+            margin-top: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            flex: none;
+            /* border: dotted black 3px;         */
+            }
+
+        .card-title, .card-answer {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .card-button {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+             /* border: 1px solid #0070bb;  */
+            background: white;
+            color: green;
+        }
+
+        .answer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='card'>
+        <div><img src="Images/drive-download-20180116T172026Z-001/apple.png"></div>
+        <div class="card-title">Apple</div>
+        <button class="card-button">Show</button>
+        <div class="answer">Manzana</div>
+        </div>
+         <div class='card'>
+        <div><img src="Images/drive-download-20180116T172026Z-001/chair.png"></div>
+        <div class="card-title">Chair</div>
+        <button class="card-button">Show</button>
+        <div class="answer">Silla</div>
+        </div>
+           <div class='card'>
+        <div><img src="Images/drive-download-20180116T172026Z-001/dog.png"></div>
+        <div class="card-title">Dog</div>
+        <button class="card-button">Show</button>
+        <div class="answer">Perro</div>
+        </div>
+           <div class='card'>
+        <div><img src="Images/drive-download-20180116T172026Z-001/city.png"></div>
+        <div class="card-title">City</div>
+        <button class="card-button">Show</button>
+        <div class="answer">Ciudad</div>
+        </div>
+    
+     <script>
+    /*var firstButton = document.getElementsByClassName('card-button')[0];
+    var firstAnswer = document.getElementsByClassName('card-answer')[0];
+    firstButton.addEventListener('click', function(event) {
+      if (firstButton.innerHTML == 'Show') {
+        firstAnswer.style.display = 'Block';
+        firstButton.innerHTML = 'Hide';
+      } else if (firstButton.innerHTML == 'Hide') {
+        firstAnswer.style.display = 'None';
+        firstButton.innerHTML = 'Show';
+      }
+    })*/
+
+    var cards = document.getElementsByClassName('card');
+    for (var cardIndex in cards) {
+      var button = cards[cardIndex].querySelector('.card-button');
+      button.addEventListener('click', function(event){
+        var currentButton = event.target;
+        var currentCard = currentButton.parentNode;
+        var currentAnswer = currentCard.querySelector('.answer');
+        if (currentButton.innerHTML == 'Show') {
+          currentAnswer.style.display = 'Block';
+          currentButton.innerHTML = 'Hide';
+        } else if (currentButton.innerHTML == 'Hide') {
+          currentAnswer.style.display = 'None';
+          currentButton.innerHTML = 'Show';
+        }
+      })
+    }
+
+  </script>
+</body>
+</html>
+
